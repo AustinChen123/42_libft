@@ -1,45 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/10 19:43:37 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/10 19:50:05 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t			i;
-	unsigned char	*temp;
+	size_t	i;
+	char	*temp;
 
 	i = 0;
-	temp = (unsigned char *)(b);
-	while (i < len)
+	temp = (char *)s;
+	while (i < n)
 	{
-		temp[i] = (unsigned char)(c);
+		temp[i] = 0;
 		i++;
 	}
-	return (b);
 }
 
 // #include <stdio.h>
 // #include <string.h>
 // int	main()
 // {
-// 	char *b = malloc(20);
-// 	if (memset(b, '2', 4) != ft_memset(b, '2', 4))
+// 	char	*b = malloc(20);
+// 	int		i = 0;
+
+// 	memset(b, 1, 20);
+// 	// bzero(b, 10);
+// 	ft_bzero(b, 10);
+// 	while (i < 10)
 // 	{
-// 		printf("error in memset");
+// 		if (b[i] != 0)
+// 		{
+// 			printf("error in bzero");
+// 			return (1);
+// 		}
+// 		i++;
 // 	}
-// 	memset(b, '2', 20);
-// 	printf("standard: %s\n", b);
-// 	ft_memset(b, '4', 10);
-// 	printf("ft_version: %s\n", b);
-// 	printf("passed memset!");
 // 	free(b);
+// 	printf("passed bzero");
 // }
