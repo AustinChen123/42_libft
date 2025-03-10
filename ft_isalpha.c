@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/10 17:42:10 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:06:45 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,18 @@ int	ft_isalpha(int c)
 }
 
 // #include <stdio.h>
+// #include <ctype.h>
 // int	main()
 // {
-// 	printf("%d\n", ft_isalpha(' '));
-// 	printf("%d\n", ft_isalpha('\r'));
-// 	printf("%d\n", ft_isalpha('A'));
-// 	printf("%d\n", ft_isalpha('z'));
+// 	int	i = 0;
+
+// 	while (i < 128)
+// 	{
+// 		if (isalpha(i) != ft_isalpha(i))
+// 		{
+// 			printf("error in %d", i);
+// 		}
+// 		i++;
+// 	}
+// 	printf("passed isalpha!");
 // }

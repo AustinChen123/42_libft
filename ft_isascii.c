@@ -6,11 +6,11 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/10 17:51:02 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:07:09 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+int	ft_isascii(int c)
 {
 	if (c > 127)
 		return (0);
@@ -20,12 +20,18 @@ int	ft_isalnum(int c)
 }
 
 // #include <stdio.h>
+// #include <ctype.h>
 // int	main()
 // {
-// 	printf("%d\n", ft_isalnum('\x00'));
-// 	printf("%d\n", ft_isalnum(-1));
-// 	printf("%d\n", ft_isalnum(128));
-// 	printf("%d\n", ft_isalnum('z'));
-// 	printf("%d\n", ft_isalnum('9'));
-// 	printf("%d\n", ft_isalnum('\x7f'));
+// 	int	i = 0;
+
+// 	while (i < 128)
+// 	{
+// 		if (isascii(i) != ft_isascii(i))
+// 		{
+// 			printf("error in %d", i);
+// 		}
+// 		i++;
+// 	}
+// 	printf("passed isascii!");
 // }

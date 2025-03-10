@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/10 17:44:54 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:06:22 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,18 @@ int	ft_isalnum(int c)
 }
 
 // #include <stdio.h>
+// #include <ctype.h>
 // int	main()
 // {
-// 	printf("%d\n", ft_isalnum(' '));
-// 	printf("%d\n", ft_isalnum('0'));
-// 	printf("%d\n", ft_isalnum('A'));
-// 	printf("%d\n", ft_isalnum('z'));
-// 	printf("%d\n", ft_isalnum('9'));
-// 	printf("%d\n", ft_isalnum('['));
+// 	int	i = 0;
+
+// 	while (i < 128)
+// 	{
+// 		if (isalnum(i) != ft_isalnum(i))
+// 		{
+// 			printf("error in %d", i);
+// 		}
+// 		i++;
+// 	}
+// 	printf("passed isalnum!");
 // }

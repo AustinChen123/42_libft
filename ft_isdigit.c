@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/10 17:41:05 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:07:36 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,18 @@ int	ft_isdigit(int c)
 }
 
 // #include <stdio.h>
+// #include <ctype.h>
 // int	main()
 // {
-// 	printf("%d\n", ft_isdigit('1'));
-// 	printf("%d\n", ft_isdigit('\r'));
-// 	printf("%d\n", ft_isdigit('A'));
-// 	printf("%d\n", ft_isdigit('z'));
+// 	int	i = 0;
+
+// 	while (i < 128)
+// 	{
+// 		if (isdigit(i) != ft_isdigit(i))
+// 		{
+// 			printf("error in %d", i);
+// 		}
+// 		i++;
+// 	}
+// 	printf("passed isdigit!");
 // }
