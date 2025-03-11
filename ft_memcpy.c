@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/11 11:41:03 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:40:35 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	size_t			i;
-	unsigned char	*temp;
+	size_t	i;
+	char	*temp_d;
+	char	*temp_s;
 
+	if (!dst || !src)
+		return ;
+	temp_d = (char *)dst;
+	temp_s = (char *)src;
 	i = 0;
-	if (!b)
-		return (NULL);
-	temp = (unsigned char *)(b);
-	while (i < len)
+	while (i < n)
 	{
-		temp[i] = (unsigned char)(c);
+		temp_d[i] = temp_s[i];
 		i++;
 	}
-	return (b);
 }
 
 // #include <stdio.h>
 // #include <string.h>
 // int	main()
 // {
-// 	char *b = malloc(20);
-// 	if (memset(b, '2', 4) != ft_memset(b, '2', 4))
-// 	{
-// 		printf("error in memset");
-// 	}
-// 	memset(b, '2', 20);
-// 	printf("standard: %s\n", b);
-// 	ft_memset(b, '4', 10);
-// 	printf("ft_version: %s\n", b);
-// 	printf("passed memset!");
-// 	free(b);
+// 	char	*dist = malloc(5);
+// 	char	*src = "4222222";
+// 	int		i = 0;
+
+// 	memcpy(dist, src, 2);
+// 	printf("mem: %s\n", dist);
+// 	ft_memcpy(dist, src, 4);
+// 	printf("mem: %s\n", dist);
+// 	free(dist);
+// 	printf("passed memcpy");
 // }
