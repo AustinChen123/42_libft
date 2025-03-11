@@ -1,44 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/12 00:03:41 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/12 00:37:47 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	char	*temp_d;
-	char	*temp_s;
+	size_t	d_len;
+	size_t	s_len;
 
-	if (!dst || !src)
-		return (NULL);
-	temp_d = (char *)dst;
-	temp_s = (char *)src;
+	d_len = ft_strlen(dst);
+	s_len = ft_strlen(src);
 	i = 0;
-	if (temp_d > temp_s)
+	if (d_len > dstsize)
+		d_len = dstsize;
+	if (d_len == dstsize)
+		return (dstsize + s_len);
+	if (s_len < dstsize - d_len)
 	{
-		while (n-- > 0)
-		{
-			temp_d[n] = temp_s[n];
-		}
+		ft_memcpy(&dst[d_len], src, s_len + 1);
 	}
 	else
 	{
-		while (i < n)
-		{
-			temp_d[i] = temp_s[i];
-			i++;
-		}
+		ft_memcpy(&dst[d_len], src, (dstsize - d_len - 1));
+		dst[dstsize - 1] = '\0';
 	}
-	return (dst);
+	return (d_len + s_len);
 }
 
 // #include <stdio.h>
@@ -49,9 +45,9 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 // 	char	*src = "4222222";
 // 	int		i = 0;
 
-// 	memmove(dist, src, 2);
+// 	strlcpy(dist, src, 2);
 // 	printf("mem: %s\n", dist);
-// 	ft_memmove(dist, src, 4);
+// 	ft_strlcpy(dist, src, 4);
 // 	printf("mem: %s\n", dist);
 // 	free(dist);
 // 	printf("passed memmove");

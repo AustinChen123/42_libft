@@ -6,20 +6,20 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/11 11:40:35 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/12 00:06:28 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 	char	*temp_d;
 	char	*temp_s;
 
 	if (!dst || !src)
-		return ;
+		return (NULL);
 	temp_d = (char *)dst;
 	temp_s = (char *)src;
 	i = 0;
@@ -28,6 +28,7 @@ void	ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 		temp_d[i] = temp_s[i];
 		i++;
 	}
+	return (dst);
 }
 
 // #include <stdio.h>
