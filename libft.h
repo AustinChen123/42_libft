@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:35:02 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/12 09:35:01 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/12 10:02:03 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,5 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(char *src);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
