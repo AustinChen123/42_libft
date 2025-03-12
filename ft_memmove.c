@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/12 00:03:41 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:54:03 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	char	*temp_d;
 	char	*temp_s;
 
-	if (!dst || !src)
+	if (!dst && !src)
 		return (NULL);
 	temp_d = (char *)dst;
 	temp_s = (char *)src;

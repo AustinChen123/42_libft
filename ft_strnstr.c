@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 01:08:15 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/12 09:39:51 by chunchen         ###   ########.fr       */
+/*   Created: 2025/03/12 03:02:37 by chunchen          #+#    #+#             */
+/*   Updated: 2025/03/12 03:49:06 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	tmp;
-	int		i;
-	char	*ans;
+	size_t	len_n;
+	size_t	i;
+	char	*str;
 
-	ans = NULL;
-	tmp = (char)(c);
+	len_n = ft_strlen(needle);
 	i = 0;
-	while (s[i])
+	str = (char *)haystack;
+	if (len_n == 0)
+		return (str);
+	while (str[i] && (i < len))
 	{
-		if (s[i] == tmp)
-			ans = (char *)(&s[i]);
+		if (i + len_n <= len)
+			if (ft_strncmp(&str[i], needle, len_n) == 0)
+				return (&str[i]);
 		i++;
 	}
-	if (s[i] == tmp)
-		ans = (char *)(&s[i]);
-	return (ans);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 01:08:15 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/12 01:15:05 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:44:18 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,20 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	tmp;
-	char			*tmp_p;
+	char	tmp;
+	int		i;
+	char	*ans;
 
-	if (s)
-		tmp_p = (char *)(s);
-	else
-		return (NULL);
-	tmp = (unsigned char)(c);
-	while (*tmp_p)
+	ans = NULL;
+	tmp = (char)(c);
+	i = 0;
+	while (s[i])
 	{
-		if (*tmp_p == tmp)
-			return (tmp_p);
-		tmp_p++;
+		if (s[i] == tmp)
+			return ((char *)(&s[i]));
+		i++;
 	}
-	if (c == '\0')
-		return (tmp_p);
-	return (NULL);
+	if (s[i] == tmp)
+		return ((char *)(&s[i]));
+	return (ans);
 }

@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/12 00:06:28 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/12 03:47:26 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char	*temp_d;
 	char	*temp_s;
 
-	if (!dst || !src)
-		return (NULL);
+	if (!dst && !src)
+		return (dst);
 	temp_d = (char *)dst;
 	temp_s = (char *)src;
 	i = 0;

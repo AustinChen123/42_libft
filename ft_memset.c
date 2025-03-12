@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:34:59 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/11 11:41:03 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/12 09:52:41 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memset(void *b, int c, size_t len)
 	unsigned char	*temp;
 
 	i = 0;
-	if (!b)
-		return (NULL);
 	temp = (unsigned char *)(b);
 	while (i < len)
 	{
