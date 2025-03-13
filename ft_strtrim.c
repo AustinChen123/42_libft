@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:36:11 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/13 16:38:43 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:37:01 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ static int	trim_helper(char const *s1, char const *set, int index)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	size_t	len;
-	char	*ans;
+	size_t		start;
+	size_t		end;
+	size_t		len;
+	char		*ans;
 
 	if (!s1)
 		return (NULL);
@@ -67,11 +67,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return ((char *)(s1));
 	len = ft_strlen(s1);
 	start = trim_helper(s1, set, 0);
+	if (start == len)
+		return (ft_strdup(""));
 	end = trim_helper(s1, set, len - 1);
 	if (end < start)
-	{
 		return (ft_strdup(""));
-	}
 	ans = (char *)ft_calloc((end - start + 2), sizeof(char));
 	if (!ans)
 		return (NULL);

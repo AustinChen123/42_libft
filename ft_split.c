@@ -6,11 +6,12 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:08:27 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/13 16:36:17 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:47:20 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	count_split(char const *s, char c)
 {
@@ -31,40 +32,57 @@ static int	count_split(char const *s, char c)
 	return (count);
 }
 
-static char	*init(const char *s, char c, char ***splits, int *num_str)
+static int	init(int *index, char ***splits, char const *s, char c)
 {
-	char	*trimmed;
+	*index = 0;
+	*splits = ft_calloc(count_split(s, c) + 1, sizeof(char *));
+	if (!*splits)
+		return (1);
+	if (count_split(s, c) == 0)
+		return (2);
+	return (0);
+}
 
-	trimmed = ft_strtrim(s, &c);
-	*num_str = 0;
-	*splits = ft_calloc(count_split(trimmed, c) + 1, sizeof(char *));
-	return (trimmed);
+// index = 0;
+// num_str = 0;
+// splits = ft_calloc(count_split(s, c) + 1, sizeof(char *));
+// if (!splits)
+// 	return (NULL);
+// if (count_split(s, c) == 0)
+// 	return (splits);
+
+static int	str_check(int *index, int *start, const char *s, char c)
+{
+	while (s[*index] == c)
+		*index = *index + 1;
+	*start = *index;
+	while (s[*index] && (s[*index] != c))
+		*index = *index + 1;
+	return (*index);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		num_str;
+	int		index;
+	int		start;
 	char	**splits;
-	char	*start;
-	char	*trimmed;
 
-	trimmed = init(s, c, &splits, &num_str);
-	if (!splits)
+	num_str = init(&index, &splits, s, c);
+	if (num_str == 1)
 		return (NULL);
-	if (count_split(trimmed, c) == 0)
+	else if (num_str == 2)
 		return (splits);
-	while (*trimmed)
+	while (s[index])
 	{
-		while (*trimmed == c)
-			trimmed++;
-		start = (char *)trimmed;
-		while (*trimmed && (*trimmed != c))
-			trimmed++;
-		splits[num_str] = ft_calloc(trimmed - start + 1, sizeof(char));
+		str_check(&index, &start, s, c);
+		splits[num_str] = ft_calloc(index - start + 1, sizeof(char));
 		if (!splits[num_str])
 			return (NULL);
-		ft_strlcpy(splits[num_str], start, trimmed - start + 1);
+		ft_strlcpy(splits[num_str], &s[start], index - start + 1);
 		num_str++;
+		if (num_str == count_split(s, c))
+			break ;
 	}
 	return (splits);
 }
