@@ -6,11 +6,23 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:35:02 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/13 23:28:30 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/14 00:05:36 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef LIBFT_H
+# define LIBFT_H
+# include <stdlib.h>
+# include <unistd.h>
+// # include <stdlib.h>
+// # include <string.h>
+// # include <fcntl.h>
+// # include <stdarg.h>
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
@@ -46,3 +58,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+t_list	*ft_lstnew(void *content);
+#endif

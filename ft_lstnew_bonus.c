@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 23:22:00 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/13 23:55:55 by chunchen         ###   ########.fr       */
+/*   Created: 2025/03/14 00:00:43 by chunchen          #+#    #+#             */
+/*   Updated: 2025/03/14 00:09:10 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstnew(void *content)
 {
-	if (n == -2147483648)
+	t_list	*new;
+
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
+		return (NULL);
 	}
-	if (n < 0)
-	{
-		n *= -1;
-		ft_putchar_fd('-', fd);
-	}
-	if (n < 10)
-		ft_putchar_fd(n + '0', fd);
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
