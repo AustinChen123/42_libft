@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:08:27 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/13 21:47:20 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/13 23:48:37 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,6 @@ static int	init(int *index, char ***splits, char const *s, char c)
 	return (0);
 }
 
-// index = 0;
-// num_str = 0;
-// splits = ft_calloc(count_split(s, c) + 1, sizeof(char *));
-// if (!splits)
-// 	return (NULL);
-// if (count_split(s, c) == 0)
-// 	return (splits);
-
 static int	str_check(int *index, int *start, const char *s, char c)
 {
 	while (s[*index] == c)
@@ -59,6 +51,14 @@ static int	str_check(int *index, int *start, const char *s, char c)
 	while (s[*index] && (s[*index] != c))
 		*index = *index + 1;
 	return (*index);
+}
+
+static void	free_splits(char ***splits, int num)
+{
+	while (num >= 0)
+		free((*splits)[num--]);
+	free(*splits);
+	*splits = NULL;
 }
 
 char	**ft_split(char const *s, char c)
@@ -78,7 +78,10 @@ char	**ft_split(char const *s, char c)
 		str_check(&index, &start, s, c);
 		splits[num_str] = ft_calloc(index - start + 1, sizeof(char));
 		if (!splits[num_str])
+		{
+			free_splits(&splits, num_str);
 			return (NULL);
+		}
 		ft_strlcpy(splits[num_str], &s[start], index - start + 1);
 		num_str++;
 		if (num_str == count_split(s, c))
