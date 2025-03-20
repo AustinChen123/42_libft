@@ -6,7 +6,7 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 00:00:43 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/14 00:09:10 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:55:48 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ t_list	*ft_lstnew(void *content)
 
 	new = (t_list *)malloc(sizeof(t_list));
 	if (!new)
-	{
 		return (NULL);
-	}
 	new->content = content;
 	new->next = NULL;
 	return (new);
