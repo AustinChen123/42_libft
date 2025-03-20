@@ -6,18 +6,25 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:35:02 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/17 16:09:53 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:29:51 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 512
+# endif
 # include <stdlib.h>
 # include <unistd.h>
-// # include <stdlib.h>
-// # include <string.h>
-// # include <fcntl.h>
-// # include <stdarg.h>
+# include <limits.h>
+
+char	*get_next_line(int fd);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+size_t	ft_strlen(const char *s);
+char	*ft_strdup(char *src);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *s, int c);
 typedef struct s_list
 {
 	void			*content;
@@ -67,4 +74,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+char	*get_next_line(int fd);
 #endif
