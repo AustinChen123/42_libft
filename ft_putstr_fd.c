@@ -6,13 +6,13 @@
 /*   By: chunchen <chunchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 23:22:00 by chunchen          #+#    #+#             */
-/*   Updated: 2025/03/13 23:56:06 by chunchen         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:30:49 by chunchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(const char *s, int fd)
 {
 	while (*s)
 	{
